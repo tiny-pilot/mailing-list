@@ -38,6 +38,11 @@ jobs:
           name: Configure gcloud project
           command: gcloud config set project "${GCLOUD_PROJECT}"
       - run:
+          name: Configure runtime environment variables
+          command: |
+            echo "EMAIL_OCTOPUS_API_KEY: '${EMAIL_OCTOPUS_API_KEY}'" >> env_variables.yaml && \
+            echo "EMAIL_OCTOPUS_LIST_ID: '${EMAIL_OCTOPUS_LIST_ID}'" >> env_variables.yaml
+      - run:
           name: Deploy to AppEngine
           command: |
             gcloud functions deploy \
