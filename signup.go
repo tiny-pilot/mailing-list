@@ -1,11 +1,11 @@
-package order
+package signup
 
 import (
 	"encoding/json"
 	"net/http"
 )
 
-func Signup(w http.ResponseWriter, r *http.Request) {
+func EmailSignup(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "https://tinypilotkvm.com")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
