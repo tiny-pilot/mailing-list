@@ -40,8 +40,8 @@ jobs:
       - run:
           name: Configure runtime environment variables
           command: |
-            echo "EMAIL_OCTOPUS_API_KEY: '${EMAIL_OCTOPUS_API_KEY}'" >> env_variables.yaml && \
-            echo "EMAIL_OCTOPUS_LIST_ID: '${EMAIL_OCTOPUS_LIST_ID}'" >> env_variables.yaml
+            echo "EMAIL_OCTOPUS_API_KEY: '${EMAIL_OCTOPUS_API_KEY}'" >> .env.yaml && \
+            echo "EMAIL_OCTOPUS_LIST_ID: '${EMAIL_OCTOPUS_LIST_ID}'" >> .env.yaml
       - run:
           name: Deploy to AppEngine
           command: |
