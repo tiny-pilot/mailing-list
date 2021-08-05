@@ -2,6 +2,7 @@ package signup
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 )
 
@@ -19,15 +20,25 @@ func EmailSignup(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var payload struct {
-		Email string `json:"email"`
+		Email    string `json:"email"`
+		Honeypot string `json:"ninja"`
 	}
 	if err := json.NewDecoder(r.Body).Decode(&payload); err != nil {
 		http.Error(w, "Unexpected message format", http.StatusBadRequest)
 		return
 	}
 
-	// Don't bother validating because the upstream server will validate for us.
-	// subscriberEmail := payload.Email
+	// Real users should never submit anything in the honeypot field, as it's only
+	// visible to bots.
+	if payload.Honeypot != "" {
+		log.Printf("bot signup detected: %s", payload.Email)
+		// Return a fake success message
+		return
+	}
 
-	http.Error(w, "Not implemented", http.StatusNotImplemented)
+	// Don't bother validating because the upstream server will validate for us.
+	err := addSubscriber(payload.Email)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
