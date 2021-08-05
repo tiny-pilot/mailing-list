@@ -25,12 +25,11 @@ func addSubscriber(emailAddress string) error {
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		type errorResponse struct {
-			Code    string `json:"code"`
-			Message string `json:"message"`
-		}
 		var respBody struct {
-			Error errorResponse `json:"error"`
+			Error struct {
+				Code    string `json:"code"`
+				Message string `json:"message"`
+			} `json:"error"`
 		}
 		err = json.NewDecoder(resp.Body).Decode(&respBody)
 		if err != nil {
