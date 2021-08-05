@@ -43,7 +43,7 @@ jobs:
             echo "EMAIL_OCTOPUS_API_KEY: '${EMAIL_OCTOPUS_API_KEY}'" >> .env.yaml && \
             echo "EMAIL_OCTOPUS_LIST_ID: '${EMAIL_OCTOPUS_LIST_ID}'" >> .env.yaml
       - run:
-          name: Deploy to AppEngine
+          name: Deploy to GCP
           command: |
             gcloud functions deploy \
               "${FUNCTION_NAME}" \
