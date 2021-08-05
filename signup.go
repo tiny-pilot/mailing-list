@@ -27,7 +27,8 @@ func EmailSignup(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Don't bother validating because the upstream server will validate for us.
-	// subscriberEmail := payload.Email
-
-	http.Error(w, "Not implemented", http.StatusNotImplemented)
+	err := addSubscriber(payload.Email)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
