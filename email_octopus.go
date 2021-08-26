@@ -17,7 +17,6 @@ func addSubscriber(emailAddress string) error {
 	postBody, _ := json.Marshal(map[string]string{
 		"api_key":       apiKey,
 		"email_address": emailAddress,
-		"status":        "SUBSCRIBED",
 	})
 	resp, err := http.Post(url, "application/json", bytes.NewBuffer(postBody))
 	if err != nil {
