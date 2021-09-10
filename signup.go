@@ -17,6 +17,7 @@ func EmailSignup(w http.ResponseWriter, r *http.Request) {
 		return
 	} else if r.Method != http.MethodPost {
 		http.Error(w, "Only OPTIONS and POST are supported", http.StatusMethodNotAllowed)
+		return
 	}
 
 	var payload struct {
