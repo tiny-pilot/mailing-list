@@ -15,7 +15,7 @@ You can use this project if you want to implement your own mailing list signup f
 
 ## Deployment
 
-This project is configured to automatically deploy from CircleCI. If you use a difference CI environment or want to deploy manually, you can copy the contents of [`.circleci/config.yml`](./circleci/config.yml). The relevant environment variables are:
+This project is configured to automatically deploy from CircleCI. If you use a difference CI environment or want to deploy manually, you can copy the contents of [`.circleci/config.yml`](./.circleci/config.yml). The relevant environment variables are:
 
 * `CLIENT_SECRET`: Your Google Cloud Project client secret JSON file, encoded as a base64 string. The user associated with the client secret must have the following GCP roles: `appengine.appAdmin`, `cloudbuild.builds.builder`, `cloudbuild.builds.editor`, `cloudfunctions.admin`, `iam.serviceAccountUser`, `run.invoker`, `storage.admin`, `storage.objectAdmin`
 * `EMAIL_OCTOPUS_API_KEY`: Your API key from EmailOctopus.
