@@ -40,7 +40,7 @@ The following JavaScript snippet demonstrates a sample
 */
 function subscribe(email, ninja) {
   // Replace this with the URL where you host your Google Cloud Function.
-  const functionUrl = 'https://tinypilotkvm.com/cloud-fns/email-signup';
+  const functionUrl = 'https://cloud-fns.tinypilotkvm.com/email-signup';
 
   return fetch(functionUrl, {
     method: 'POST',
