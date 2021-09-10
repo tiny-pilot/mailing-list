@@ -56,4 +56,5 @@ function subscribe(email, ninja) {
     }
     return Promise.resolve();
   });
+}
 ```
