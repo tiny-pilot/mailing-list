@@ -41,6 +41,7 @@ func EmailSignup(w http.ResponseWriter, r *http.Request) {
 	err := addSubscriber(payload.Email)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	log.Print("added subscriber successfully")
