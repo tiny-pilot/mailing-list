@@ -9,10 +9,12 @@ import (
 	"os"
 )
 
-func addSubscriber(emailAddress string) error {
-	apiKey := mustGetenv("EMAIL_OCTOPUS_API_KEY")
-	listId := mustGetenv("EMAIL_OCTOPUS_LIST_ID")
+var (
+	apiKey = mustGetenv("EMAIL_OCTOPUS_API_KEY")
+	listId = mustGetenv("EMAIL_OCTOPUS_LIST_ID")
+)
 
+func addSubscriber(emailAddress string) error {
 	url := fmt.Sprintf("https://emailoctopus.com/api/1.5/lists/%s/contacts", listId)
 	postBody, _ := json.Marshal(map[string]string{
 		"api_key":       apiKey,
