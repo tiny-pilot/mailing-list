@@ -1,10 +1,7 @@
 {
-  "editor.defaultFormatter": "golang.go",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "[markdown]": {
-    "editor.formatOnSave": false
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
   }
 }
