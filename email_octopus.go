@@ -35,7 +35,7 @@ func addSubscriber(emailAddress string) error {
 			return err
 		}
 		log.Printf("Failed to add subscriber: %s - %s", respBody.Error.Code, respBody.Error.Message)
-		return fmt.Errorf("Failed to add subscriber: %s", respBody.Error.Message)
+		return fmt.Errorf("failed to add subscriber: %s", respBody.Error.Message)
 	}
 
 	var respBody struct {
