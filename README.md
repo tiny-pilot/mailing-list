@@ -17,12 +17,12 @@ You can use this project if you want to implement your own mailing list signup f
 
 This project is configured to automatically deploy from CircleCI. If you use a difference CI environment or want to deploy manually, you can copy the contents of [`.circleci/config.yml`](./.circleci/config.yml). The relevant environment variables are:
 
-* `CLIENT_SECRET`: Your Google Cloud Project client secret JSON file, encoded as a base64 string. The user associated with the client secret must have the following GCP roles: `appengine.appAdmin`, `cloudbuild.builds.builder`, `cloudbuild.builds.editor`, `cloudfunctions.admin`, `iam.serviceAccountUser`, `run.invoker`, `storage.admin`, `storage.objectAdmin`
-* `EMAIL_OCTOPUS_API_KEY`: Your API key from EmailOctopus.
-* `EMAIL_OCTOPUS_LIST_ID`: The ID of the list
-* `GCLOUD_PROJECT`: The name of your Google Cloud Platform project
-* `GO_RUNTIME`: Which Google Cloud Function to use (go113 recommended)
-* `FUNCTION_NAME`: Name to give your deployed Google Cloud Function
+- `CLIENT_SECRET`: Your Google Cloud Project client secret JSON file, encoded as a base64 string. The user associated with the client secret must have the following GCP roles: `appengine.appAdmin`, `cloudbuild.builds.builder`, `cloudbuild.builds.editor`, `cloudfunctions.admin`, `iam.serviceAccountUser`, `run.invoker`, `storage.admin`, `storage.objectAdmin`
+- `EMAIL_OCTOPUS_API_KEY`: Your API key from EmailOctopus.
+- `EMAIL_OCTOPUS_LIST_ID`: The ID of the list
+- `GCLOUD_PROJECT`: The name of your Google Cloud Platform project
+- `GO_RUNTIME`: Which Google Cloud Function to use (go113 recommended)
+- `FUNCTION_NAME`: Name to give your deployed Google Cloud Function
 
 ## Integration
 
@@ -40,14 +40,14 @@ The following JavaScript snippet demonstrates a sample
 */
 function subscribe(email, ninja) {
   // Replace this with the URL where you host your Google Cloud Function.
-  const functionUrl = 'https://cloud-fns.tinypilotkvm.com/email-signup';
+  const functionUrl = "https://cloud-fns.tinypilotkvm.com/email-signup";
 
   return fetch(functionUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({email, ninja}),
+    body: JSON.stringify({ email, ninja }),
   }).then((response) => {
     if (!response.ok) {
       return response.text().then((error) => {
